@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wedding RSVP</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Poster Section -->
+        <section class="poster-section">
+            <div class="poster-container">
+                <img id="poster-image" src="save the date.png" alt="Wedding Invitation" />
+            </div>
+        </section>
+
+        <!-- RSVP Form Section -->
+        <section class="rsvp-section">
+            <div class="rsvp-container">
+                <h2>Please RSVP</h2>
+                <p class="subtitle">We can't wait to celebrate with you!</p>
+                
+                <form id="rsvp-form" class="rsvp-form">
+                    <!-- Attendance Selection -->
+                    <div class="form-group">
+                        <label>Will you be attending? *</label>
+                        <div class="radio-group">
+                            <label class="radio-label">
+                                <input type="radio" name="attendance" value="yes" required>
+                                <span class="radio-custom"></span>
+                                Yes, I'll be there!
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="attendance" value="no" required>
+                                <span class="radio-custom"></span>
+                                Sorry, I can't make it
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Names of Attendees -->
+                    <div class="form-group">
+                        <label for="attendee-names">What are the names of people attending? *</label>
+                        <input
+                            type="text"
+                            id="attendee-names"
+                            name="attendee_names"
+                            placeholder="e.g., Yue Li, Yiwei Zhang"
+                            required
+                        />
+                    </div>
+
+                    <!-- Number Attending -->
+                    <div class="form-group">
+                        <label for="attendee-count">How many are attending? *</label>
+                        <input
+                            type="number"
+                            id="attendee-count"
+                            name="attendee_count"
+                            min="1"
+                            max="20"
+                            placeholder="e.g., 2"
+                            required
+                        />
+                    </div>
+
+                    <!-- Email Address -->
+                    <div class="form-group">
+                        <label for="email">Email Address *</label>
+                        <input 
+                            type="email" 
+                            id="email" 
+                            name="email" 
+                            placeholder="your.email@example.com" 
+                            required
+                        />
+                    </div>
+
+                    <!-- Submit Button -->
+                    <button type="submit" class="submit-btn">
+                        <span>Submit RSVP</span>
+                    </button>
+
+                    <!-- Success Message -->
+                    <div id="success-message" class="success-message hidden">
+                        <p>✓ Thank you! Your RSVP has been submitted successfully.</p>
+                    </div>
+
+                    <!-- Error Message -->
+                    <div id="error-message" class="error-message hidden">
+                        <p>There was an error submitting your RSVP. Please try again.</p>
+                    </div>
+                </form>
+            </div>
+        </section>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
