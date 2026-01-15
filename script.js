@@ -79,8 +79,7 @@ document.addEventListener('DOMContentLoaded', function() {
         ];
 
         const icsContent = icsLines.join('\r\n');
-        const icsBlob = new Blob([icsContent], { type: 'text/calendar;charset=utf-8' });
-        const icsUrl = URL.createObjectURL(icsBlob);
+        const icsUrl = `data:text/calendar;charset=utf-8,${encodeURIComponent(icsContent)}`;
 
         addToCalendar.setAttribute('href', icsUrl);
 
