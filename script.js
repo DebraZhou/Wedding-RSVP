@@ -12,6 +12,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const calendarSection = document.getElementById('calendar-section');
     const addToCalendar = document.getElementById('add-to-calendar');
     const googleCalendarLink = document.getElementById('google-calendar-link');
+    const attendanceDetails = document.getElementById('attendance-details');
     const submitBtn = form.querySelector('.submit-btn');
     const iframe = document.querySelector('iframe[name="hidden_iframe"]');
     let pendingSubmit = false;
@@ -95,6 +96,31 @@ document.addEventListener('DOMContentLoaded', function() {
     if (localStorage.getItem(SUBMITTED_KEY) === 'true') {
         showSubmittedState();
     }
+
+    const toggleAttendanceDetails = () => {
+        if (!attendanceDetails) {
+            return;
+        }
+        const attendanceInput = form.querySelector('input[name="entry.877086558"]:checked');
+        const isYes = attendanceInput && attendanceInput.value.startsWith('Yes');
+        const fields = attendanceDetails.querySelectorAll('input');
+
+        attendanceDetails.classList.toggle('hidden', !isYes);
+        fields.forEach((field) => {
+            if (isYes) {
+                field.setAttribute('required', 'required');
+            } else {
+                field.removeAttribute('required');
+                field.value = '';
+            }
+        });
+    };
+
+    form.querySelectorAll('input[name="entry.877086558"]').forEach((input) => {
+        input.addEventListener('change', toggleAttendanceDetails);
+    });
+
+    toggleAttendanceDetails();
 
     if (editResponseBtn) {
         editResponseBtn.addEventListener('click', () => {

@@ -333,6 +333,10 @@ textarea {
     display: none;
 }
 
+#attendance-details.hidden {
+    display: none;
+}
+
 /* Animations */
 @keyframes fadeIn {
     from {
