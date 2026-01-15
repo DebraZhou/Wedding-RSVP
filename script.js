@@ -41,7 +41,11 @@ document.addEventListener('DOMContentLoaded', function() {
 
         // Prepare data for Google Form
         const googleFormData = new URLSearchParams();
-        googleFormData.append(FORM_ENTRY_IDS.attendance, attendance === 'yes' ? 'Yes' : 'No');
+        // Must match the exact option labels in the Google Form.
+        googleFormData.append(
+            FORM_ENTRY_IDS.attendance,
+            attendance === 'yes' ? "Yes, I'll be there" : "Sorry, can't make it"
+        );
         googleFormData.append(FORM_ENTRY_IDS.attendeeNames, attendeeNames);
         googleFormData.append(FORM_ENTRY_IDS.attendeeCount, attendeeCount);
         googleFormData.append(FORM_ENTRY_IDS.email, email);
