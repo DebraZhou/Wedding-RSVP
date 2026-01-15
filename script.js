@@ -2,16 +2,16 @@
 // Replace this URL with your actual Google Form formResponse URL
 // For your form: open the form, click "Send", and copy the long link
 // Then replace viewform with formResponse.
-const GOOGLE_FORM_URL = 'https://docs.google.com/forms/d/e/1FAIpQLSdv8Svkpzr2O2YP85Y1075BANA_Y97PV3JJUM5PRGaf2Jjf4g/viewform?usp=header';
+const GOOGLE_FORM_URL = 'https://docs.google.com/forms/d/e/1FAIpQLSdv8Svkpzr2O2YP85Y1075BANA_Y97PV3JJUM5PRGaf2Jjf4g/formResponse';
 
 // Map form field names to Google Form entry IDs
 // You'll need to replace these with your actual Google Form entry IDs
 // To find entry IDs: Submit a test response, then view the form's source code or use browser dev tools
 const FORM_ENTRY_IDS = {
-    attendance: 'entry.123456789',       // Can you attend?
-    attendeeNames: 'entry.987654321',    // What are the names of people attending?
-    attendeeCount: 'entry.456789123',    // How many are attending?
-    email: 'entry.789123456'             // Email Address
+    attendance: 'entry.877086558',      // Can you attend?
+    attendeeNames: 'entry.1498135098',  // What are the names of people attending?
+    attendeeCount: 'entry.105299945',   // How many are attending?
+    email: 'entry.1441178635'           // Email Address
 };
 
 document.addEventListener('DOMContentLoaded', function() {
