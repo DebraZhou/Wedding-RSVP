@@ -88,6 +88,11 @@ body {
     letter-spacing: 2px;
 }
 
+.rsvp-container.submitted-state #rsvp-title,
+.rsvp-container.submitted-state #rsvp-subtitle {
+    display: none;
+}
+
 .subtitle {
     text-align: center;
     color: #7f8c8d;

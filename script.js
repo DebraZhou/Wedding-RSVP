@@ -2,6 +2,7 @@ const SUBMITTED_KEY = 'rsvp_submitted';
 
 document.addEventListener('DOMContentLoaded', function() {
     const form = document.getElementById('rsvp-form');
+    const rsvpContainer = document.getElementById('rsvp-container');
     const successMessage = document.getElementById('success-message');
     const errorMessage = document.getElementById('error-message');
     const submittedMessage = document.getElementById('submitted-message');
@@ -17,22 +18,16 @@ document.addEventListener('DOMContentLoaded', function() {
         form.classList.add('hidden');
         submittedMessage.classList.remove('hidden');
         editResponseContainer.classList.remove('hidden');
-        if (rsvpTitle) {
-            rsvpTitle.classList.add('hidden');
-        }
-        if (rsvpSubtitle) {
-            rsvpSubtitle.classList.add('hidden');
+        if (rsvpContainer) {
+            rsvpContainer.classList.add('submitted-state');
         }
     };
 
     const showFormState = () => {
         submittedMessage.classList.add('hidden');
         form.classList.remove('hidden');
-        if (rsvpTitle) {
-            rsvpTitle.classList.remove('hidden');
-        }
-        if (rsvpSubtitle) {
-            rsvpSubtitle.classList.remove('hidden');
+        if (rsvpContainer) {
+            rsvpContainer.classList.remove('submitted-state');
         }
         submitBtn.disabled = false;
         submitBtn.innerHTML = '<span>Submit RSVP</span>';
