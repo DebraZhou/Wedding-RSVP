@@ -157,6 +157,23 @@ document.addEventListener('DOMContentLoaded', function() {
         successMessage.classList.add('hidden');
         errorMessage.classList.add('hidden');
 
+        const attendanceInput = form.querySelector('input[name="entry.877086558"]:checked');
+        const isYes = attendanceInput && attendanceInput.value.startsWith('Yes');
+        if (!isYes && attendanceDetails) {
+            const nameField = form.querySelector('input[name="entry.1498135098"]');
+            const adultField = form.querySelector('input[name="entry.105299945"]');
+            const childField = form.querySelector('input[name="entry.905871587"]');
+            if (nameField) {
+                nameField.value = 'Not attending';
+            }
+            if (adultField) {
+                adultField.value = '0';
+            }
+            if (childField) {
+                childField.value = '0';
+            }
+        }
+
         // Disable submit button
         submitBtn.disabled = true;
         submitBtn.innerHTML = '<span>Submitting...</span>';
