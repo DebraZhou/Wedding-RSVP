@@ -6,6 +6,8 @@ document.addEventListener('DOMContentLoaded', function() {
     const errorMessage = document.getElementById('error-message');
     const submittedMessage = document.getElementById('submitted-message');
     const submitBtn = form.querySelector('.submit-btn');
+    const iframe = document.querySelector('iframe[name="hidden_iframe"]');
+    let pendingSubmit = false;
 
     const showSubmittedState = () => {
         form.classList.add('hidden');
@@ -14,6 +16,19 @@ document.addEventListener('DOMContentLoaded', function() {
 
     if (localStorage.getItem(SUBMITTED_KEY) === 'true') {
         showSubmittedState();
+    }
+
+    if (iframe) {
+        iframe.addEventListener('load', () => {
+            if (!pendingSubmit) {
+                return;
+            }
+            pendingSubmit = false;
+            localStorage.setItem(SUBMITTED_KEY, 'true');
+            form.reset();
+            showSubmittedState();
+            submittedMessage.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        });
     }
 
     // Handle form submission
@@ -27,12 +42,7 @@ document.addEventListener('DOMContentLoaded', function() {
         submitBtn.innerHTML = '<span>Submitting...</span>';
 
         // Let the browser submit to the hidden iframe, then show thank you
-        localStorage.setItem(SUBMITTED_KEY, 'true');
-        setTimeout(() => {
-            form.reset();
-            showSubmittedState();
-            submittedMessage.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-        }, 0);
+        pendingSubmit = true;
     });
 
     // Smooth scroll behavior
