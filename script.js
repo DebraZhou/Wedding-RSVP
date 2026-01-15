@@ -5,6 +5,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const successMessage = document.getElementById('success-message');
     const errorMessage = document.getElementById('error-message');
     const submittedMessage = document.getElementById('submitted-message');
+    const editResponseContainer = document.getElementById('edit-response-container');
     const editResponseBtn = document.getElementById('edit-response-btn');
     const submitBtn = form.querySelector('.submit-btn');
     const iframe = document.querySelector('iframe[name="hidden_iframe"]');
@@ -13,11 +14,15 @@ document.addEventListener('DOMContentLoaded', function() {
     const showSubmittedState = () => {
         form.classList.add('hidden');
         submittedMessage.classList.remove('hidden');
+        editResponseContainer.classList.remove('hidden');
     };
 
     const showFormState = () => {
         submittedMessage.classList.add('hidden');
+        editResponseContainer.classList.add('hidden');
         form.classList.remove('hidden');
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = '<span>Submit RSVP</span>';
     };
 
     if (localStorage.getItem(SUBMITTED_KEY) === 'true') {
@@ -41,6 +46,8 @@ document.addEventListener('DOMContentLoaded', function() {
             localStorage.setItem(SUBMITTED_KEY, 'true');
             form.reset();
             showSubmittedState();
+            submitBtn.disabled = false;
+            submitBtn.innerHTML = '<span>Submit RSVP</span>';
             submittedMessage.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
         });
     }
