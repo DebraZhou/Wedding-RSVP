@@ -41,6 +41,33 @@ body {
     border-radius: 8px;
 }
 
+/* Directions Section */
+.directions-section {
+    background: white;
+    border-radius: 16px;
+    padding: 40px 40px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+    max-width: 800px;
+    margin: 0 auto 40px;
+    animation: slideUp 0.8s ease-out;
+}
+
+.directions-container h2 {
+    font-size: 2em;
+    text-align: center;
+    color: #2c3e50;
+    margin-bottom: 12px;
+    font-weight: 300;
+    letter-spacing: 1px;
+}
+
+.directions-container p {
+    text-align: center;
+    color: #4d5a66;
+    font-size: 1.05em;
+    line-height: 1.7;
+}
+
 /* RSVP Section */
 .rsvp-section {
     background: white;
