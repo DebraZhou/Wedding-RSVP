@@ -276,6 +276,47 @@ textarea {
     padding: 24px;
 }
 
+.calendar-section {
+    margin-top: 16px;
+    font-size: 0.9em;
+}
+
+.calendar-button,
+.calendar-link,
+.parking-info a {
+    display: inline-block;
+    margin-top: 10px;
+    margin-right: 12px;
+    color: #2c3e50;
+    text-decoration: underline;
+    font-weight: 500;
+}
+
+.calendar-button {
+    text-decoration: none;
+    background: #2c3e50;
+    color: #ffffff;
+    padding: 10px 16px;
+    border-radius: 8px;
+}
+
+.calendar-button:hover {
+    background: #8fa5d3;
+    color: #ffffff;
+}
+
+.calendar-link:hover,
+.parking-info a:hover {
+    color: #8fa5d3;
+}
+
+.parking-info {
+    margin-top: 12px;
+    font-size: 0.95em;
+    line-height: 1.6;
+    color: #2c3e50;
+}
+
 .edit-response-container {
     margin-top: 12px;
     text-align: center;
