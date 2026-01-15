@@ -18,7 +18,17 @@ document.addEventListener('DOMContentLoaded', function() {
     const form = document.getElementById('rsvp-form');
     const successMessage = document.getElementById('success-message');
     const errorMessage = document.getElementById('error-message');
+    const submittedMessage = document.getElementById('submitted-message');
     const submitBtn = form.querySelector('.submit-btn');
+
+    const showSubmittedState = () => {
+        form.classList.add('hidden');
+        submittedMessage.classList.remove('hidden');
+    };
+
+    if (localStorage.getItem('rsvp_submitted') === 'true') {
+        showSubmittedState();
+    }
 
     // Handle form submission
     form.addEventListener('submit', async function(e) {
@@ -62,12 +72,11 @@ document.addEventListener('DOMContentLoaded', function() {
             });
 
             // With no-cors mode, we can't check the response status
-            // So we'll assume success and show the success message
-            successMessage.classList.remove('hidden');
+            // So we'll assume success and show the submitted state
+            localStorage.setItem('rsvp_submitted', 'true');
             form.reset();
-            
-            // Scroll to success message
-            successMessage.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            showSubmittedState();
+            submittedMessage.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
             
         } catch (error) {
             console.error('Error submitting form:', error);
