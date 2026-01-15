@@ -5,6 +5,8 @@ document.addEventListener('DOMContentLoaded', function() {
     const successMessage = document.getElementById('success-message');
     const errorMessage = document.getElementById('error-message');
     const submittedMessage = document.getElementById('submitted-message');
+    const rsvpTitle = document.getElementById('rsvp-title');
+    const rsvpSubtitle = document.getElementById('rsvp-subtitle');
     const editResponseContainer = document.getElementById('edit-response-container');
     const editResponseBtn = document.getElementById('edit-response-btn');
     const submitBtn = form.querySelector('.submit-btn');
@@ -15,11 +17,23 @@ document.addEventListener('DOMContentLoaded', function() {
         form.classList.add('hidden');
         submittedMessage.classList.remove('hidden');
         editResponseContainer.classList.remove('hidden');
+        if (rsvpTitle) {
+            rsvpTitle.classList.add('hidden');
+        }
+        if (rsvpSubtitle) {
+            rsvpSubtitle.classList.add('hidden');
+        }
     };
 
     const showFormState = () => {
         submittedMessage.classList.add('hidden');
         form.classList.remove('hidden');
+        if (rsvpTitle) {
+            rsvpTitle.classList.remove('hidden');
+        }
+        if (rsvpSubtitle) {
+            rsvpSubtitle.classList.remove('hidden');
+        }
         submitBtn.disabled = false;
         submitBtn.innerHTML = '<span>Submit RSVP</span>';
     };
