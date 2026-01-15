@@ -5,6 +5,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const successMessage = document.getElementById('success-message');
     const errorMessage = document.getElementById('error-message');
     const submittedMessage = document.getElementById('submitted-message');
+    const editResponseBtn = document.getElementById('edit-response-btn');
     const submitBtn = form.querySelector('.submit-btn');
     const iframe = document.querySelector('iframe[name="hidden_iframe"]');
     let pendingSubmit = false;
@@ -14,8 +15,21 @@ document.addEventListener('DOMContentLoaded', function() {
         submittedMessage.classList.remove('hidden');
     };
 
+    const showFormState = () => {
+        submittedMessage.classList.add('hidden');
+        form.classList.remove('hidden');
+    };
+
     if (localStorage.getItem(SUBMITTED_KEY) === 'true') {
         showSubmittedState();
+    }
+
+    if (editResponseBtn) {
+        editResponseBtn.addEventListener('click', () => {
+            localStorage.removeItem(SUBMITTED_KEY);
+            showFormState();
+            form.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        });
     }
 
     if (iframe) {
