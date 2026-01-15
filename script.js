@@ -19,7 +19,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
     const showFormState = () => {
         submittedMessage.classList.add('hidden');
-        editResponseContainer.classList.add('hidden');
         form.classList.remove('hidden');
         submitBtn.disabled = false;
         submitBtn.innerHTML = '<span>Submit RSVP</span>';
